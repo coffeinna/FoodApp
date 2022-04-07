@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<script th:include="fragments/header :: headerScripts" th:remove="tag"></script>
+</head>
+<body>
+	<div class="container">
+	<div th:insert="fragments/components :: header" class="card-title container-fluid text-center"></div>
+
+			<div th:replace="fragments/components :: menu"></div>
+			</br> </br>
+			<div th:replace="fragments/components :: myNavbar"></div>
+			</br> </br>
+		<div class="card" style="max-width:800Px; margin: 0 auto">
+			<div class="card-header container-fluid text-center"><b>Aplikacja zaliczeniowa</b></div>
+			<div class="card-body">
+			</br> </br>
+				<h5 class="card-title container-fluid text-center">Zrobiłeś zakupy?</h5>
+				<p class="card-text container-fluid text-center">Dodaj składniki do lodówki!</p>
+				<div style="text-align: center"> 
+				<a th:href = "@{/ingredients}">
+				<img th:src="@{/images/fridge.png}" style="width: 100px"/>
+					</a></div>
+					</br> </br>
+				<h5 class="card-title container-fluid text-center">Jesteś głodny?</h5>
+				<p class="card-text container-fluid text-center">Wybierz przepis i ugotuj coś!</p>
+				<div style="text-align: center">
+				<a th:href = "@{/recipes}">
+				<img th:src="@{/images/cooking.png}" style="width: 100px" />
+				</a></div>	
+			</div>
+			</br> </br> 
+		</div>Stopka
+			<div th:include="fragments/components :: footer"></div>
+	</div>
+</body>
+</html>

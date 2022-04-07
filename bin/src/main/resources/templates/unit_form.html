@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<script th:include="fragments/header :: headerScripts" th:remove="tag"></script>
+</head>
+<body>
+	<div class="container">
+	<div th:insert="fragments/components :: header" class="card-title container-fluid text-center"></div>
+
+			<div th:replace="fragments/components :: menu"></div>
+			</br> </br>
+			<div th:replace="fragments/components :: myNavbar"></div>
+			</br> </br>
+		<div class="card" style="max-width:800Px; margin: 0 auto">
+			<div class="card-header container-fluid text-center"><h3 th:if="${unit.id==null}">Create New Unit</h3>
+	<h3 th:unless="${unit.id==null}">Edit Unit</h3></div>
+			<div class="card-body">
+			<div class="container text-center">
+			
+		<form th:action="@{/units/save}" method="POST" th:object="${unit}"
+			 style="max-width:500Px; margin: 0 auto">
+		
+		<input type="hidden" th:field="*{id}" th:value="${unit.id}" />
+			
+			<div class="border border-secondary rounded p-3">
+				<div class="form-group row">
+					<label class="col-sm-4 col-form-label">Unit name:</label>
+					<div class="col-sm-8">
+						<input type="text" th:field="*{name}" class="form=control"  required/>
+					</div>
+				</div>
+			</div>
+			
+				<div class="text-center">
+					<button type="submit" class="btn btn-info col-2" style="margin-left: 8%">Save</button>
+				</div>
+		</form>
+		
+		</div>
+		
+			</div>
+			</br> </br> 
+		</div>Stopka
+			<div th:include="fragments/components :: footer"></div>
+	</div>
+</body>
+</html>
