@@ -14,8 +14,8 @@
 			<div th:replace="fragments/components :: myNavbar"></div>
 			</br> </br>
 		<div class="card" style="max-width:800Px; margin: 0 auto">
-			<div class="card-header container-fluid text-center"><h3 th:if="${ingredient.id==null}">Dodaj nowy składnik</h3>
-	<h3 th:unless="${ingredient.id==null}">Edytuj składnik</h3></div>
+			<div class="card-header container-fluid text-center"><h3 th:if="${ingredient.id==null}">Add new ingredient</h3>
+	<h3 th:unless="${ingredient.id==null}">Update ingredient</h3></div>
 			<div class="card-body">
 			<div class="container text-center">
 			
@@ -58,7 +58,7 @@
 		
 			</div>
 			</br> </br> 
-		</div>Stopka
+		</div>Footer
 			<div th:include="fragments/components :: footer"></div>
 	</div>
 </body>

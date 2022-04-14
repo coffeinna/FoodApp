@@ -31,8 +31,14 @@ public class RecipeController {
 	
 	@GetMapping("/recipes")
 	public String listRecipes(Model model) {
-		model.addAttribute("listRecipes", recipeServiceImpl.getAllRecipes());
+		List<Recipe> listRecipes = recipeServiceImpl.getAllRecipes();
+		for ( Recipe recipe : listRecipes) {
+			recipeServiceImpl.canICook(recipe);
+		}
+		model.addAttribute("listRecipes",listRecipes);
 		model.addAttribute("listRecipeIngredient", recipeServiceImpl.getAllRecipeIngredients());
+		
+		
 		return "recipes";
 	}
 	@GetMapping("/newrecipe")
@@ -101,13 +107,13 @@ public class RecipeController {
 		String messege=" ";
 		if(recipeServiceImpl.canICook(recipe)) {
 			
-			messege="Smacznego!";
+			messege="Enjoy your meal!";
 			ra.addFlashAttribute("messege",messege);
 			recipeServiceImpl.cook(recipe);
 			
 		}else {
 			
-			messege="O nie! Nie masz wystarczająco składników!";
+			messege="Oh no! Not enough ingredients!";
 			ra.addFlashAttribute("messegeNOT",messege);
 		}
 		

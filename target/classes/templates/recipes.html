@@ -13,11 +13,11 @@
 			</br> </br>
 			<div th:replace="fragments/components :: myNavbar"></div>
 			</br> </br>
-		<div class="card" style="max-width:800Px; margin: 0 auto">
-			<div class="card-header container-fluid text-center"><b>Przepisy</b></div>
+		<div class="card" style="max-width:1000Px; margin: 0 auto">
+			<div class="card-header container-fluid text-center"><b>Recipes</b></div>
 			<div class="card-body">
 			<div class="container text-center">
-			<a th:href = "@{/newrecipe}" ><b> Dodaj nowy przepis </b></a>
+			<a th:href = "@{/newrecipe}" ><b> Add new recipe </b></a>
 	
 	</br> </br>
 	
@@ -41,6 +41,9 @@
 					<th>
 						Description
 					</th>
+					<th>
+						Availability
+					</th>
 					<th> Actions </th>
 				</tr>
 			</thead>
@@ -49,11 +52,12 @@
 					<td th:text="${recipe.name}"></td>
 					<td th:text="${recipe.ingredients}"></td>
 					<td th:text="${recipe.description}"></td>
+					<td th:text="${recipe.status}"></td>
 					<td> 
-						<a th:href="@{/recipes/cook/{id}(id=${recipe.id})}" class="btn btn-success">Cook</a>
-						<a th:href="@{/recipes/edit/{id}(id=${recipe.id})}" class="btn btn-primary">Update</a>
-						<a th:href="@{/recipes/editIngredients/{id}(id=${recipe.id})}" class="btn btn-info">Update Ingredients</a>
-					    <a th:href="@{/recipes/delete/{id}(id=${recipe.id})}" class="btn btn-danger">Delete</a>
+						<a th:href="@{/recipes/cook/{id}(id=${recipe.id})}" class="btn btn-success m-1" onclick="alert('Are you sure you want to cook this meal?')">Cook</a>
+						<a th:href="@{/recipes/edit/{id}(id=${recipe.id})}" class="btn btn-primary m-1">Update</a>
+						<a th:href="@{/recipes/editIngredients/{id}(id=${recipe.id})}" class="btn btn-info m-1">Update Ingredients</a>
+					    <a th:href="@{/recipes/delete/{id}(id=${recipe.id})}" class="btn btn-danger m-1">Delete</a>
 					</td>
 				</tr>
 			</tbody>
@@ -62,7 +66,7 @@
 		
 			</div>
 			</br> </br> 
-		</div>Stopka
+		</div>Footer
 			<div th:include="fragments/components :: footer"></div>
 	</div>
 </body>

@@ -22,6 +22,8 @@ public class Recipe {
 	
 	@OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<RecipeIngredient> ingredients = new ArrayList<>();
+	
+	private boolean status;
 
 	public Recipe() {
 	}
@@ -39,6 +41,16 @@ public class Recipe {
 		this.description = description;
 		this.ingredients = ingredients;
 	}
+	
+
+	public Recipe(Integer id, String name, String description, List<RecipeIngredient> ingredients, boolean status) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.status = status;
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -71,6 +83,17 @@ public class Recipe {
 	public void setIngredient(List<RecipeIngredient> ingredients) {
 		this.ingredients = ingredients;
 	}
+
+
+	public boolean isStatus() {
+		return status;
+	}
+
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	
 	
 	
 }

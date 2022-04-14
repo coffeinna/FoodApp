@@ -99,10 +99,12 @@ public class RecipeServiceImpl implements RecipeService  {
              recipeIngredients) {
          Ingredient ingredient = ingredientServiceImpl.getIngredientById(recipeIngredient.getIngredient().getId());
          if (ingredient.getAmount() < recipeIngredient.getAmount()){
+        	 recipe.setStatus(false);
              return false;
          }
      }
-     return true;
+	recipe.setStatus(true);
+    return true;
  }
 
 	@Override
